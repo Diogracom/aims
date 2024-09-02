@@ -21,8 +21,8 @@ class CheckRole
             switch($user->role){
                 case 'User':
                     return redirect()->route('pages.dashboard');
-                case 'Admin':
-                    return redirect()->route('pages.dashboard');
+                //case 'Admin':
+                //    return redirect()->route('pages.dashboard');
                 default:
                     return redirect()->route('login');
             }
