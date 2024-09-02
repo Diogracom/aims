@@ -17,7 +17,7 @@ class AuthController extends Controller
             return redirect()->intended(); 
         } else {
             return back()->withErrors([
-                'failed' => 'The provided credentials do not match our records.'
+                'failed' => 'The provided credentials do not exist.'
             ]);
         }
 
