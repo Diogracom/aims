@@ -20,6 +20,15 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet">
+	<!-- Noty CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty@3.1.4/lib/noty.css" />
+
+    <!-- Noty Theme CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty@3.1.4/lib/themes/sunset.css" />
+
+    <!-- Noty JS -->
+    <script src="https://cdn.jsdelivr.net/npm/noty@3.1.4/lib/noty.min.js"></script>
+
 	<title>Aims</title>
 </head>
 
@@ -52,6 +61,27 @@
 		});
 	</script>
 	<!--app JS-->
+	<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            @if (session('error'))
+                new Noty({
+                    text: "{{ session('error') }}",
+                    type: 'error',
+                    layout: 'topRight',
+                    timeout: 3000
+                }).show();
+            @endif
+
+			@if (session('success'))
+                new Noty({
+                    text: "{{ session('success') }}",
+                    type: 'success',
+                    layout: 'topRight',
+                    timeout: 3000
+                }).show();
+            @endif
+        });
+    </script>
 	<script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 

@@ -20,7 +20,7 @@
 										@csrf
 										<div class="col-12">
 											<label for="username" class="form-label">Username</label>
-											<input type="text" id="username" placeholder="Username"
+											<input type="text" id="username" name='username' placeholder="Username"
 											class="form-control  @error('username') is-invalid @enderror">             
 											@error('username')
 												<p class="error"> {{ $message }} </p>

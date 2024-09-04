@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class AuthController extends Controller
 {
@@ -12,15 +14,16 @@ class AuthController extends Controller
         $login = $request->validate([
             'username' => ['required']
         ]);
+        
+        $username = $login['username'];
 
-        if (Auth::attempt($login)) {
-            return redirect()->intended(); 
-        } else {
-            return back()->withErrors([
-                'failed' => 'The provided credentials do not exist.'
-            ]);
+        $returnedUser = User::where('username', $username)->exists();
+        if($returnedUser){ 
+            return redirect()->route('pages.dashboard')->with('success', 'Login successful! Welcome back.');
+             
+        }else{
+            return redirect()->back()->with('error', 'The provided credentials do not match our records.');    
         }
-
         
     }
  
