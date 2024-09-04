@@ -1,3 +1,5 @@
+
+
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
@@ -9,7 +11,8 @@
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
         </div>
      </div>
-    <!--navigation-->
+     @if($returnedUser->role == 'Admin'){
+        <!--Admin navigation-->
     <ul class="metismenu" id="menu">
         <li>
             <a href="{{route('pages.dashboard')}}">
@@ -107,5 +110,56 @@
             </a>
         </li>
     </ul>
-    <!--end navigation-->
+    <!--end Admin navigation-->
+ 
+     }   
+     @else
+         
+    
+    <!--user navigation-->
+    <ul class="metismenu" id="menu">
+        <li>
+            <a href="{{route('pages.dashboard')}}">
+                <div class="parent-icon"><i class='bx bx-home-alt'></i>
+                </div>
+                <div class="menu-title">Dashboard</div>
+            </a>
+           
+        </li>
+        
+        
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">Manage Data</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('all.month')}}"><i class='bx bx-radio-circle'></i>All Months</a>
+                </li>
+                <li> <a href="{{route('add.month')}}"><i class='bx bx-radio-circle'></i>Add Month</a>
+                </li>
+            </ul>
+        </li>
+        
+        
+       
+        
+        <li>
+            <a href="user-profile.html">
+                <div class="parent-icon"><i class="bx bx-user-circle"></i>
+                </div>
+                <div class="menu-title">User Profile</div>
+            </a>
+        </li>
+        <li>
+            <a href="timeline.html">
+                <div class="parent-icon"> <i class="bx bx-video-recording"></i>
+                </div>
+                <div class="menu-title">Timeline</div>
+            </a>
+        </li>
+    </ul>
+    <!--end user navigation-->
+    @endif
 </div>

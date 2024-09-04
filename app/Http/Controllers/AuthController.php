@@ -19,7 +19,7 @@ class AuthController extends Controller
 
         $returnedUser = User::where('username', $username)->exists();
         if($returnedUser){ 
-            return redirect()->route('pages.dashboard')->with('success', 'Login successful! Welcome back.');
+            return redirect()->route('pages.dashboard', compact('returnedUser'))->with('success', 'Login successful! Welcome back.');
              
         }else{
             return redirect()->back()->with('error', 'The provided credentials do not match our records.');    
