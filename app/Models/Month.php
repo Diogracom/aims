@@ -11,8 +11,12 @@ class Month extends Model
 
     protected $fillable = ['month_name'];
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+  
     public function month(){ 
-        //return $this->hasMany();
+        return $this->hasMany(DataCollection::class);
     }
 
 }

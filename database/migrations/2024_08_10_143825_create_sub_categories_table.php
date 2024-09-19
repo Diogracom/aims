@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');    
             $table->string('subcategory_name');  
-            $table->timestamps();
+            $table->string('created_by')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

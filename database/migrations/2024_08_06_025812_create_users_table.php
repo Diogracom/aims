@@ -30,12 +30,6 @@ return new class extends Migration
             $table->timestamp('updated_at')->nullable();
         });
 
-        // Schema::create('password_reset_tokens', function (Blueprint $table) {
-        //     $table->string('email',191)->primary();
-        //     $table->string('token',255);
-        //     $table->timestamp('created_at')->nullable();
-        // });
-
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id', 191)->primary();
             $table->foreignId('user_id')->nullable()->index();
@@ -53,7 +47,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
-        //Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
 };

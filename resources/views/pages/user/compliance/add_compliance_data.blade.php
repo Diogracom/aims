@@ -22,14 +22,11 @@
 				<h5 class="mb-4">Add Data</h5>
 				<form class="row g-3" action="{{route('register.subcategory')}}" method="post">
 					@csrf
+
 					<div class="col-md-6">
-					<label for="category_id" class="form-label">Category</label>
-					<select name="category_id" id="category_id" class="form-select @error('category_id') is-invalid @enderror">
-						<option value="" disabled selected>Select a Category...</option>
-						@foreach ($category as $item)
-							<option value="{{ $item->id }}">{{ $item->category_name }}</option>
-						@endforeach
-					</select>
+					<label for=" category_id" class="form-label">Category</label>
+					<input type="text" name="subcategory_name" id="subcategory_name" class="form-control @error('subcategory_name')	is-invalid 									
+						@enderror" placeholder="SubCategory Name"> 
 					@error('category_id')
 						<p class="error">{{ $message }}</p>
 					@enderror

@@ -12,9 +12,13 @@ class Category extends Model
 
     protected $fillable = ['category_name', 'department_id'];
     
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     public function department()
     {
-         return $this->belongsTo(Department::class);
+        return $this->belongsTo(Department::class);
     }
 
     public function subcategories()

@@ -12,9 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('months', function (Blueprint $table) {
-            $table->id();
+            $table->id();   
             $table->string('month_name', 191)->unique();
-            $table->timestamps();
+            $table->string('created_by')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
